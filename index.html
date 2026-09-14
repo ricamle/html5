@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creando Historias en Papel</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf8f5;
+            color: #333;
+        }
+
+        .navbar { background-color: #fff; }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+                url("https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .hero p { font-size: 1.2rem; }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            border: none;
+            border-radius: 15px;
+            transition: .3s;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+        }
+
+        .service-icon { font-size: 45px; }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin: auto;
+        }
+
+        .form-section { background-color: #fff; }
+        footer { background-color: #222; color: white; }
+        .required { color: red; }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="bi bi-book-heart"></i>
+            Creando Historias en Papel
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proceso">Cómo funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a class="btn btn-dark" href="#crear">Crear mi álbum</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="inicio" class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h1>Tus recuerdos merecen convertirse en historias.</h1>
+                <p class="mt-4">
+                    Creamos álbumes fotográficos personalizados para
+                    conservar tus momentos más importantes en papel.
+                </p>
+                <div class="mt-4">
+                    <a href="#crear" class="btn btn-light btn-lg me-2">Crear mi álbum</a>
+                    <a href="#servicios" class="btn btn-outline-light btn-lg">Ver servicios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="servicios" class="py-5">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Elige cómo quieres crear tu historia</h2>
+            <p class="section-subtitle">Dos modalidades pensadas para diferentes necesidades.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card service-card shadow-sm p-4">
+                    <div class="card-body">
+                        <div class="service-icon mb-3"><i class="bi bi-images"></i></div>
+                        <h3>Autogestión + acompañamiento</h3>
+                        <p>
+                            Tú eliges y subes tus fotografías. Nosotros nos encargamos
+                            de organizarlas, retocarlas y diseñar tu álbum.
+                        </p>
+
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Carga de fotografías</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Organización de fotografías</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Retoque básico</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Diseño personalizado</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Impresión y entrega</li>
+                        </ul>
+
+                        <button class="btn btn-dark w-100"
+                                onclick="seleccionarServicio('Autogestión + acompañamiento')">
+                            Elegir esta opción
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card service-card shadow-sm p-4">
+                    <div class="card-body">
+                        <div class="service-icon mb-3"><i class="bi bi-stars"></i></div>
+                        <h3>Servicio integral</h3>
+                        <p>
+                            Tú nos entregas tus fotografías y nosotros nos encargamos
+                            de crear la historia completa.
+                        </p>
+
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Selección de fotografías</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Edición profesional</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Diseño narrativo</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Revisión del cliente</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle"></i> Impresión y entrega</li>
+                        </ul>
+
+                        <button class="btn btn-dark w-100"
+                                onclick="seleccionarServicio('Servicio integral')">
+                            Elegir esta opción
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="proceso" class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Así creamos tu álbum</h2>
+            <p class="section-subtitle">
+                Un proceso sencillo para convertir tus fotografías digitales en recuerdos físicos.
+            </p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="step-number">1</div>
+                <h5 class="mt-3">Cuéntanos tu historia</h5>
+                <p>Indica qué momento quieres conservar.</p>
+            </div>
+            <div class="col-md-3">
+                <div class="step-number">2</div>
+                <h5 class="mt-3">Sube tus fotos</h5>
+                <p>Envíanos las fotografías de tu historia.</p>
+            </div>
+            <div class="col-md-3">
+                <div class="step-number">3</div>
+                <h5 class="mt-3">Diseñamos</h5>
+                <p>Organizamos y diseñamos el álbum.</p>
+            </div>
+            <div class="col-md-3">
+                <div class="step-number">4</div>
+                <h5 class="mt-3">Recibe tu historia</h5>
+                <p>Imprimimos y entregamos tu álbum.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="galeria" class="py-5">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title">Historias que pueden convertirse en papel</h2>
+            <p class="section-subtitle">Cada álbum cuenta una historia diferente.</p>
+        </div>
+
+        <div class="row g-4 gallery">
+            <div class="col-md-4">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                     alt="Álbum de boda">
+                <h5 class="mt-3">Nuestra boda</h5>
+            </div>
+
+            <div class="col-md-4">
+                <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80"
+                     alt="Viaje">
+                <h5 class="mt-3">Un viaje inolvidable</h5>
+            </div>
+
+            <div class="col-md-4">
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80"
+                     alt="Familia">
+                <h5 class="mt-3">Momentos en familia</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="crear" class="py-5 form-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="text-center mb-4">
+                    <h2 class="section-title">Comienza a crear tu historia</h2>
+                    <p class="section-subtitle">
+                        Cuéntanos un poco sobre el álbum que quieres crear.
+                    </p>
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4 p-md-5">
+
+                        <form id="albumForm">
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Nombre <span class="required">*</span></label>
+                                    <input type="text" id="nombre" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Correo electrónico <span class="required">*</span></label>
+                                    <input type="email" id="email" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Teléfono</label>
+                                    <input type="tel" id="telefono" class="form-control">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Tipo de historia</label>
+                                    <select id="tipoHistoria" class="form-select">
+                                        <option value="">Selecciona una opción</option>
+                                        <option>Viaje</option>
+                                        <option>Matrimonio</option>
+                                        <option>Aniversario</option>
+                                        <option>Cumpleaños</option>
+                                        <option>Bebé / Familia</option>
+                                        <option>Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Modalidad <span class="required">*</span></label>
+                                    <select id="servicio" class="form-select" required>
+                                        <option value="">Selecciona una modalidad</option>
+                                        <option>Autogestión + acompañamiento</option>
+                                        <option>Servicio integral</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Cantidad aproximada de fotografías</label>
+                                    <input type="number" id="fotos" class="form-control" min="1" placeholder="Ej: 80">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Tamaño del álbum</label>
+                                    <select id="tamano" class="form-select">
+                                        <option>20 x 20 cm</option>
+                                        <option>25 x 25 cm</option>
+                                        <option>30 x 30 cm</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Cuéntanos sobre tu historia</label>
+                                    <textarea id="mensaje" class="form-control" rows="4"
+                                              placeholder="Ej: Quiero crear un álbum de nuestro viaje a Europa..."></textarea>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Fotografías</label>
+                                    <input type="file" id="imagenes" class="form-control"
+                                           multiple accept="image/*">
+                                    <small class="text-muted">
+                                        En este prototipo las imágenes solo se seleccionan localmente.
+                                    </small>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-dark btn-lg w-100">
+                                        <i class="bi bi-heart"></i>
+                                        Solicitar mi álbum
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <div class="display-4 mb-3">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+                <h3>¡Tu historia comienza aquí!</h3>
+                <p class="text-muted">
+                    Hemos recibido la información de tu álbum.
+                    Pronto nos pondremos en contacto contigo para continuar el proceso.
+                </p>
+                <button class="btn btn-dark" data-bs-dismiss="modal">Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5><i class="bi bi-book-heart"></i> Creando Historias en Papel</h5>
+                <p class="mb-0">
+                    Transformamos fotografías digitales en recuerdos para toda la vida.
+                </p>
+            </div>
+
+            <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                <p class="mb-1">Síguenos</p>
+                <i class="bi bi-instagram fs-4 me-2"></i>
+                <i class="bi bi-facebook fs-4 me-2"></i>
+                <i class="bi bi-whatsapp fs-4"></i>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+            <small>© 2026 Creando Historias en Papel. Todos los derechos reservados.</small>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function seleccionarServicio(servicio) {
+        document.getElementById("servicio").value = servicio;
+
+        document.getElementById("crear").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    document.getElementById("albumForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const email = document.getElementById("email").value;
+        const servicio = document.getElementById("servicio").value;
+
+        if (!nombre || !email || !servicio) {
+            alert("Por favor completa los campos obligatorios.");
+            return;
+        }
+
+        console.log("Nuevo pedido:", {
+            nombre,
+            email,
+            telefono: document.getElementById("telefono").value,
+            historia: document.getElementById("tipoHistoria").value,
+            servicio,
+            fotos: document.getElementById("fotos").value,
+            tamano: document.getElementById("tamano").value,
+            mensaje: document.getElementById("mensaje").value,
+            cantidadArchivos: document.getElementById("imagenes").files.length
+        });
+
+        const modal = new bootstrap.Modal(document.getElementById("successModal"));
+        modal.show();
+
+        this.reset();
+    });
+
+    document.getElementById("imagenes").addEventListener("change", function() {
+        console.log("Fotografías seleccionadas:", this.files.length);
+    });
+</script>
+
+</body>
+</html>
